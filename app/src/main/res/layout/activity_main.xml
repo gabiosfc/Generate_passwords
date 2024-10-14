@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="ExtraText">
+
+    <!-- Título e ícone -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Auto Generate"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Campo de senha gerada -->
+    <TextView
+        android:id="@+id/tv_generated_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Generated Password"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:padding="12dp"
+        android:background="@drawable/password_box"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center" />
+
+    <!-- Slider para o comprimento da senha -->
+    <TextView
+        android:id="@+id/tv_password_length_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password Length"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_generated_password"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/tv_password_length_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12" <!-- Valor inicial -->
+        android:textSize="16sp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toTopOf="@id/seekBar_password_length"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/seekBar_password_length" />
+
+    <SeekBar
+        android:id="@+id/seekBar_password_length"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="20"
+        android:progress="12"
+        app:layout_constraintTop_toBottomOf="@id/tv_password_length_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+
+
+    <!-- Alternativas configuráveis -->
+    <Switch
+        android:id="@+id/switch_use_letters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use Letters"
+        app:layout_constraintTop_toBottomOf="@id/seekBar_password_length"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:checked="true"/>
+
+    <Switch
+        android:id="@+id/switch_use_numbers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use Numbers"
+        app:layout_constraintTop_toBottomOf="@id/switch_use_letters"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:checked="true"/>
+
+    <Switch
+        android:id="@+id/switch_use_capital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use Capital Letters"
+        app:layout_constraintTop_toBottomOf="@id/switch_use_numbers"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:checked="true"/>
+
+    <Switch
+        android:id="@+id/switch_use_special_chars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use Special Characters"
+        app:layout_constraintTop_toBottomOf="@id/switch_use_capital"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <!-- Botões para regenerar e copiar a senha -->
+    <Button
+        android:id="@+id/btn_generate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Generate Password"
+        app:layout_constraintTop_toBottomOf="@id/switch_use_special_chars"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_copy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Copy Password"
+        app:layout_constraintTop_toBottomOf="@id/btn_generate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

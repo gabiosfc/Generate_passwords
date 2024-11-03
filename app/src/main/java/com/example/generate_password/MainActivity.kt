@@ -50,10 +50,20 @@ class MainActivity : AppCompatActivity() {
         val numbers = "0123456789"
         val similarCharacters = "il1Lo0O"
         var charPool = ""
+        val password = StringBuilder()
 
-        if (includeUpperCase.isChecked) charPool += upperCase
-        if (includeLowerCase.isChecked) charPool += lowerCase
-        if (includeNumbers.isChecked) charPool += numbers
+        if (includeUpperCase.isChecked) {
+            charPool += upperCase
+            password.append(upperCase.random())
+        }
+        if (includeLowerCase.isChecked) {
+            charPool += lowerCase
+            password.append(lowerCase.random())
+        }
+        if (includeNumbers.isChecked) {
+            charPool += numbers
+            password.append(numbers.random())
+        }
 
         if (excludeSimilar.isChecked) {
             charPool = charPool.filterNot { it in similarCharacters }
@@ -64,11 +74,15 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val password = (1..length)
-            .map { charPool[Random.nextInt(charPool.length)] }
-            .joinToString("")
+        while (password.length < length) {
+            password.append(charPool.random())
+        }
 
-        passwordTextView.text = password
+        // Shuffle to ensure randomness
+        val shuffledPassword = password.toList().shuffled().joinToString("")
+
+        passwordTextView.text = shuffledPassword
+        passwordTextView.setTextColor(resources.getColor(android.R.color.black, null))
     }
 
     private fun copyPasswordToClipboard() {

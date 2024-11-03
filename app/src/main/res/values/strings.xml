@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">Generate_password</string>
+    <string name="app_name">Password Generator</string>
+    <string name="title">Password Generator</string>
+    <string name="generated_password">Generated Password</string>
+    <string name="generate_new_password">Generate New Password</string>
+    <string name="copy_password">Copy Password</string>
+    <string name="include_uppercase">Include Upper Case Letters</string>
+    <string name="include_lowercase">Include Lower Case Letters</string>
+    <string name="include_numbers">Include Numbers</string>
+    <string name="exclude_similar">Exclude Similar Characters (e.g., 1 and I)</string>
+    <string name="password_length">Password Length:</string>
+    <string name="enter_password_length">Enter password length</string>
 </resources>
